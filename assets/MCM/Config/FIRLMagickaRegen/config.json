@@ -1,0 +1,93 @@
+{
+  "modName": "FIRLMagickaRegen",
+  "displayName": "FIRL Magicka Regen",
+  "content": [
+    {
+      "type": "header",
+      "text": "General"
+    },
+    {
+      "id": "bEnabled:General",
+      "text": "Mod enabled",
+      "type": "toggle",
+      "help": "Master switch. When off, magicka regeneration is vanilla.",
+      "valueOptions": {
+        "sourceType": "ModSettingBool"
+      }
+    },
+    {
+      "id": "bPlayer:General",
+      "text": "Apply to the player",
+      "type": "toggle",
+      "help": "The player uses the formula below.",
+      "valueOptions": {
+        "sourceType": "ModSettingBool"
+      }
+    },
+    {
+      "id": "bNPCs:General",
+      "text": "Apply to NPCs and creatures",
+      "type": "toggle",
+      "help": "Every other loaded actor uses the same formula.",
+      "valueOptions": {
+        "sourceType": "ModSettingBool"
+      }
+    },
+    {
+      "type": "header",
+      "text": "Formula: % of max + flat"
+    },
+    {
+      "type": "text",
+      "text": "Regen/s = max x % / 100 + flat",
+      "help": "Same rate in and out of combat, whatever you hold in your hands. Regeneration bonuses (enchantments, potions, perks) apply on top. Changes take effect when you close the menu.",
+      "valueOptions": {
+        "value": ""
+      }
+    },
+    {
+      "id": "fPercent:Formula",
+      "text": "Percent of max per second",
+      "type": "slider",
+      "help": "Part proportional to maximum magicka (vanilla: 3%).",
+      "valueOptions": {
+        "min": 0,
+        "max": 10,
+        "step": 0.1,
+        "formatString": "{1}%",
+        "sourceType": "ModSettingFloat"
+      }
+    },
+    {
+      "id": "fFlat:Formula",
+      "text": "Flat points per second",
+      "type": "slider",
+      "help": "Flat part, independent of maximum magicka.",
+      "valueOptions": {
+        "min": 0,
+        "max": 30,
+        "step": 0.5,
+        "formatString": "{1}",
+        "sourceType": "ModSettingFloat"
+      }
+    },
+    {
+      "id": "bMultAffectsFlat:Formula",
+      "text": "Regen bonuses also boost the flat part",
+      "type": "toggle",
+      "help": "On: a +50% magicka regen enchantment also boosts the flat part. Off: it only affects the percentage part.",
+      "valueOptions": {
+        "sourceType": "ModSettingBool"
+      }
+    },
+    {
+      "id": "bRespectDelay:Formula",
+      "text": "Respect the delay after spending magicka",
+      "type": "toggle",
+      "help": "On: no regeneration during the short vanilla delay that follows spending magicka.",
+      "valueOptions": {
+        "sourceType": "ModSettingBool"
+      }
+    }
+  ]
+}

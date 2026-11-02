@@ -1,0 +1,62 @@
+[size=5][b]FIRL Magicka Regen[/b][/size]
+[i]Magicka regeneration as "percent of max + flat", for everyone, configurable in game.[/i]
+
+[size=4][b]What it does[/b][/size]
+In vanilla Skyrim, magicka regenerates at a percentage of your maximum magicka (3% per second), and only a third of that in combat. A low-level mage with 100 magicka gets 1 point per second in a fight.
+
+This SKSE plugin replaces that with a simple linear formula:
+
+[code]Regen per second = max magicka x Percent / 100 + Flat[/code]
+
+[list]
+[*]Default: [b]3% of max + 5 per second[/b].
+[*][b]Same rate in and out of combat[/b], whatever you hold in your hands.
+[*]Applies to the [b]player and every NPC and creature[/b] (each can be turned off).
+[*]Regeneration bonuses still work on top: magicka regen enchantments, potions, perks, the Atronach Stone penalty...
+[*]Optional: respect the short vanilla delay after spending magicka.
+[*]Everything is adjustable live in the [b]MCM[/b]. Changes apply when you close the menu.
+[/list]
+
+[size=4][b]MCM options[/b][/size]
+[list]
+[*]Mod enabled / Apply to the player / Apply to NPCs and creatures
+[*]Percent of max per second (0 to 10%)
+[*]Flat points per second (0 to 30)
+[*]Regen bonuses also boost the flat part (on by default)
+[*]Respect the delay after spending magicka (off by default)
+[/list]
+Settings are stored by MCM Helper in [i]Data/MCM/Settings/FIRLMagickaRegen.ini[/i] and can also be edited by hand.
+
+[size=4][b]How it works[/b][/size]
+The plugin hooks each actor's update and lets the game run its normal regeneration first, then adds or removes the difference with the formula above. No base actor value is changed: [b]nothing is written to your save[/b], so it is safe to install or uninstall mid-game. No scripts run (the ESL only holds the MCM quest).
+
+[size=4][b]Requirements[/b][/size]
+[list]
+[*][url=https://skse.silverlock.org/]SKSE64[/url] (for your game version)
+[*][url=https://www.nexusmods.com/skyrimspecialedition/mods/32444]Address Library for SKSE Plugins[/url]
+[*][url=https://www.nexusmods.com/skyrimspecialedition/mods/53000]MCM Helper[/url] and [url=https://www.nexusmods.com/skyrimspecialedition/mods/12604]SkyUI[/url] (for the menu)
+[/list]
+
+[size=4][b]Game versions[/b][/size]
+Built with CommonLibSSE-NG for SE and AE through the Address Library. Tested on [b]1.7.104[/b]. VR is not supported.
+
+[size=4][b]Compatibility[/b][/size]
+[list]
+[*][b]Incompatible[/b] with other mods that change how magicka regenerates through an SKSE hook, such as [b]Regeneration Overhaul[/b] or [b]Regen Adjuster SKSE[/b]: the correction would be off. The plugin writes a warning in its log if Regeneration Overhaul is loaded.
+[*]Mods that only change [i]fCombatMagickaRegenRateMult[/i] are harmless (the combat penalty is cancelled anyway).
+[*]Compatible with everything else: perk overhauls, enchantment mods and potions keep working, since their bonuses are applied on top.
+[/list]
+
+[size=4][b]Troubleshooting[/b][/size]
+Log file: [i]Documents/My Games/Skyrim Special Edition/SKSE/FIRLMagickaRegen.log[/i]. It lists the hooks installed and the settings loaded.
+Quick test in game: open the console, type [i]player.damageav magicka 200[/i] and watch the bar refill.
+
+[size=4][b]Source code[/b][/size]
+Source available under the same terms as CommonLibSSE-NG (GPL-3.0 with modding exception): [url=LINK]LINK[/url]
+
+[size=4][b]Credits[/b][/size]
+[list]
+[*]alandtse and the CommonLibSSE-NG contributors
+[*]Styyx1 (RegenAdjusterRewrite) for the update hook approach
+[*]Parapets for MCM Helper, schlangster and the SkyUI team, the SKSE team, meh321 for the Address Library
+[/list]

@@ -1,0 +1,18 @@
+# Build / CMake
+/build/
+/dist/
+
+# vcpkg
+/vcpkg_installed/
+vcpkg-manifest-install.log
+
+# Packaged release
+*.zip
+
+# VS / IDE
+.vs/
+*.user
+
+# Local notes and logs
+CLAUDE.md
+build_log.txt
