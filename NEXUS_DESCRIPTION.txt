@@ -52,7 +52,7 @@ Log file: [i]Documents/My Games/Skyrim Special Edition/SKSE/FIRLMagickaRegen.log
 Quick test in game: open the console, type [i]player.damageav magicka 200[/i] and watch the bar refill.
 
 [size=4][b]Source code[/b][/size]
-Source available under the same terms as CommonLibSSE-NG (GPL-3.0 with modding exception): [url=LINK]LINK[/url]
+Source available under the same terms as CommonLibSSE-NG (GPL-3.0 with modding exception): [url=https://github.com/Forgeron-IRL/FIRL-Magicka-Regen]github.com/Forgeron-IRL/FIRL-Magicka-Regen[/url]
 
 [size=4][b]Credits[/b][/size]
 [list]
